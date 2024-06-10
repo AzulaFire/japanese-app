@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import Data from '../data/kanji';
 import logo from '../assets/logo.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { initFlowbite } from 'flowbite';
 
 const Header = ({ filterItem, setItem, count }) => {
   const allCount = Data.length;
@@ -17,6 +18,10 @@ const Header = ({ filterItem, setItem, count }) => {
     setIsHome(false);
     filterItem(num);
   };
+
+  useEffect(() => {
+    initFlowbite();
+  }, []);
 
   return (
     <header className='sticky top-0 z-50'>
